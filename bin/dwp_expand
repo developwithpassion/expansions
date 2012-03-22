@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'developwithpassion_expander'
+DevelopWithPassion::Expander::CLIInterface.new.run(ARGV)
