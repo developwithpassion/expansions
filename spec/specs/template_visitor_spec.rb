@@ -44,7 +44,7 @@ module DevelopWithPassion
           end
 
           it "should not try to delete the original file" do
-            file.should never_receive(:delete)
+            file.should_not have_received(:delete)
           end
         end
 

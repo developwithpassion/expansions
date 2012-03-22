@@ -1,24 +1,17 @@
 module DevelopWithPassion
   module Expander
     class FileMerge
-      attr_accessor :before_files,:after_files,:read_original_contents
+      attr_accessor :read_original_contents
 
       def initialize(output_file)
         array :before_files do|a|
           a.read_and_write
-          a.mutator :add_before_original_contents do|file|
-            add_merge_file(@before_files,file)
-          end
-          a.mutator :add do|file|
-            add_before_original_contents(file)
-          end
+          a.mutator :add_before_original_contents do |file| add_merge_file(@before_files,file) end
+          a.mutator :add do|file| add_before_original_contents(file) end
         end
         array :after_files do|a|
-          a.readable
-          a.writable
-          a.mutator :add_after_original_contents do|file|
-            add_merge_file(@after_files,file)
-          end
+          a.read_and_write
+          a.mutator :add_after_original_contents do|file| add_merge_file(@after_files,file) end
         end
         @output_file = output_file
         @read_original_contents = true

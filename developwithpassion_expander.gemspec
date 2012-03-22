@@ -19,10 +19,9 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  s.add_development_dependency "rspec"
   s.add_development_dependency "guard"
   s.add_development_dependency "guard-rspec"
-  s.add_development_dependency "developwithpassion_fakes"
+  s.add_development_dependency "developwithpassion_fakes-rspec"
   s.add_development_dependency "rb-notifu"
   s.add_runtime_dependency 'configatron', '>=2.9.0'
   s.add_runtime_dependency "mustache"
