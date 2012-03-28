@@ -10,11 +10,11 @@ module Kernel
   end
 
   def disable_logging
-    Expansions::Expander::Log.disable
+    Expansions::Log.disable
   end
 
   def enable_logging
-    Expansions::Expander::Log.enable
+    Expansions::Log.enable
   end
 
   def delayed
@@ -30,6 +30,6 @@ module Kernel
   end
 
   def log(message)
-    Expansions::Expander::Log.message(message)
+    Expansions::Log.message(message)
   end
 end
