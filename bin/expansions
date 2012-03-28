@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'expansions'
+Expansions::CLIInterface.new.run(ARGV)
