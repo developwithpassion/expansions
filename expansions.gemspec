@@ -4,14 +4,14 @@ require "core/version"
 
 Gem::Specification.new do |s|
   s.name        = "developwithpassion_expander"
-  s.version     = DevelopWithPassion::Expander::VERSION
+  s.version     = Expansions::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Develop With Passion®"]
   s.email       = ["open_source@developwithpassion.com"]
   s.homepage    = "http://www.developwithpassion.com"
   s.summary     = %q{Simple Expansion Automation Utility}
   s.description = %q{Automation utitlity that I use to support cross platform file maintenance}
-  s.rubyforge_project = "developwithpassion_expander"
+  s.rubyforge_project = "expansions"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
