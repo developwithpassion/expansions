@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib",__FILE__)
 require "core/version"
 
 Gem::Specification.new do |s|
-  s.name        = "developwithpassion_expander"
+  s.name        = "expansions"
   s.version     = Expansions::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Develop With Passion®"]
