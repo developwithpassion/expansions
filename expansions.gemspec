@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib",__FILE__)
-require "developwithpassion_expander/version"
+require "core/version"
 
 Gem::Specification.new do |s|
   s.name        = "developwithpassion_expander"
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   # specify any dependencies here; for example:
   s.add_development_dependency "guard"
   s.add_development_dependency "guard-rspec"
-  s.add_development_dependency "developwithpassion_fakes-rspec"
+  s.add_development_dependency "fakes-rspec"
   s.add_development_dependency "rb-notifu"
   s.add_runtime_dependency 'configatron', '>=2.9.0'
   s.add_runtime_dependency "mustache"
