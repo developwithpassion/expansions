@@ -1,6 +1,6 @@
 module Kernel
   def expand(title = "Expansion",&block)
-    DevelopWithPassion::Expander::Expansion.instance.instance_eval(&block)
+    Expansions::Expansion.instance.instance_eval(&block)
   end
 
   def glob(path)
@@ -10,11 +10,11 @@ module Kernel
   end
 
   def disable_logging
-    DevelopWithPassion::Expander::Log.disable
+    Expansions::Expander::Log.disable
   end
 
   def enable_logging
-    DevelopWithPassion::Expander::Log.enable
+    Expansions::Expander::Log.enable
   end
 
   def delayed
@@ -30,6 +30,6 @@ module Kernel
   end
 
   def log(message)
-    DevelopWithPassion::Expander::Log.message(message)
+    Expansions::Expander::Log.message(message)
   end
 end
