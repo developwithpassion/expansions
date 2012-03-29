@@ -25,5 +25,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rb-notifu"
   s.add_runtime_dependency 'configatron', '>=2.9.0'
   s.add_runtime_dependency "mustache"
-  s.add_runtime_dependency "developwithpassion_arrays"
+  s.add_runtime_dependency "arrayfu"
 end
