@@ -3,7 +3,7 @@ require 'fileutils'
 require 'erb'
 require 'singleton'
 require 'mustache'
-require 'developwithpassion_arrays'
+require 'arrayfu'
 
 require 'core/array'
 require 'core/cli_interface'
