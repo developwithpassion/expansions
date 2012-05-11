@@ -2,7 +2,7 @@
 
 This was one of the first projects I wrote when I was teaching myself ruby. A lot of the codebase definitely shows its age, but it is also what I use to this day to manage my [cross platform script configuration system].
 
-It is really an extremely scaled down rake built to suit one specific purpose (supporting the expansions for the scripts I was managing!!)
+It really supports one specific purpose (supporting the expansions for the scripts I was managing!!)
 
 #Usage
 
