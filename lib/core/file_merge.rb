@@ -21,18 +21,26 @@ module Expansions
     end
 
     def run
-      original_contents = File.read_all_text(@output_file)
+      copy_name = File.join(File.dirname(@output_file),"copy_of_#{File.basename(@output_file)}")
+      FileUtils.cp @output_file, copy_name if File.exist?(@output_file)
       FileUtils.rm_f @output_file
       File.open_for_write(@output_file) do |file|
         merge_files(@before_files,file)
-        file.write original_contents if @read_original_contents
+        write_contents(file,copy_name) if @read_original_contents && File.exist?(copy_name)
         merge_files(@after_files,file)
+      end
+      FileUtils.rm_f copy_name if File.exist?(copy_name)
+    end
+
+    def write_contents(target_file_stream,file_to_read)
+      File.open_for_read(file_to_read) do|line|
+        target_file_stream << line
       end
     end
 
     def merge_files(source_files,target)
       source_files.each do|source|
-        target.write File.read_all_text(source)
+        write_contents(target,source) 
       end
     end
 
