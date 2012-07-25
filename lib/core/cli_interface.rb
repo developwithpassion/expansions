@@ -1,14 +1,14 @@
 module Expansions
   class CLIInterface
     def get_expansion_file_name(args)
-      return args.count > 0 ? args[0] : "Expansionfile"
+      return args.count > 0 ? args[0] : "ExpansionFile"
     end
 
     def ensure_expansion_file_provided(file)
       unless File.exist?(file)
         print <<-prompt
 dwp_expand aborted!
-No Expansionfile found (looking for: Expansionfile)
+No Expansionfile found (looking for: ExpansionFile)
         prompt
         exit
       end
