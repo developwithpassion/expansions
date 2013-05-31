@@ -9,7 +9,7 @@ This is the second line @item@
       original
     end
     context "when preparing a template" do
-      let(:sut){ERBTemplateFile.new}
+      let(:sut){ERBTemplateFile}
 
       before (:each) do
         @result = sut.prepare_template(@original_template)
@@ -28,7 +28,7 @@ This is the second line <%= item %>
       let(:item){"yo"}
       let(:file){fake}
       let(:file_name){"blah.rb"}
-      let(:sut){ERBTemplateFile.new}
+      let(:sut){ERBTemplateFile}
 
       before (:each) do
         @filesystem = RelativeFileSystem.new

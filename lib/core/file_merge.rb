@@ -1,19 +1,32 @@
 module Expansions
   class FileMerge
+    include ArrayFu
     attr_accessor :read_original_contents
 
+    array :before_files do
+      read_and_write
+
+      mutator :add_before_original_contents do |file| 
+        add_merge_file(@before_files,file) 
+      end
+
+      mutator :add do |file| 
+        add_before_original_contents(file) 
+      end
+    end
+
+    array :after_files do
+      read_and_write
+
+      mutator :add_after_original_contents do |file| 
+        add_merge_file(@after_files,file) 
+      end
+    end
+
     def initialize(output_file)
-      array :before_files do|a|
-        a.read_and_write
-        a.mutator :add_before_original_contents do |file| add_merge_file(@before_files,file) end
-        a.mutator :add do|file| add_before_original_contents(file) end
-      end
-      array :after_files do|a|
-        a.read_and_write
-        a.mutator :add_after_original_contents do|file| add_merge_file(@after_files,file) end
-      end
       @output_file = output_file
       @read_original_contents = true
+      initialize_arrayfu
     end
 
     def dont_read_original_file_contents
@@ -44,7 +57,6 @@ module Expansions
       end
     end
 
-    :private
     def add_merge_file(items,file)
       return if items.include?(file)
       items << file if File.exists?(file)

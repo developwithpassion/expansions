@@ -11,9 +11,11 @@ module Expansions
         Shell.stub(:instance).and_return(shell)
         @sut = CopyToTarget.new(target)
       end
+
       before (:each) do
         @sut.run_using(source)
       end
+
       it "should copy the source to the target" do
         shell.should have_received(:run,"cp -rf #{source} #{target}")
       end

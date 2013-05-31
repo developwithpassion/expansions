@@ -2,4 +2,4 @@
 
 require 'expansions'
 
-Expansions::CLIInterface.new.run(ARGV)
+Expansions::CLIInterface.run(ARGV)

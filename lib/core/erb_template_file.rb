@@ -1,5 +1,7 @@
 module Expansions
-  class ERBTemplateFile
+  module ERBTemplateFile
+    extend self
+
     def prepare_template(template)
       token_regex = /(@\w[\w\.\_]+\w@)/
 

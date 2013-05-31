@@ -1,5 +1,7 @@
 module Expansions
-  class CLIInterface
+  module CLIInterface
+    extend self
+
     def get_expansion_file_name(args)
       return args.count > 0 ? args[0] : "ExpansionFile"
     end

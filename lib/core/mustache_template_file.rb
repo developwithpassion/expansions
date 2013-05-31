@@ -1,5 +1,7 @@
 module Expansions
-  class MustacheTemplateFile
+  module MustacheTemplateFile
+    extend self
+
     def process(args)
       template = File.read_all_text(args[:input])
 

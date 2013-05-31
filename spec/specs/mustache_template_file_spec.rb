@@ -11,7 +11,7 @@ This is the second line {{ item }}
     end
     context "when processing" do
       let(:item){"yo"}
-      let(:sut){MustacheTemplateFile.new}
+      let(:sut){MustacheTemplateFile}
 
       configatron.configure_from_hash :hello => "world"
 

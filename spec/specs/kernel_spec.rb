@@ -19,7 +19,7 @@ module Kernel
       end
 
       after (:each) do
-        @file_system.teardown
+        # @file_system.teardown
       end
 
       context "and no block is given" do
@@ -28,7 +28,7 @@ module Kernel
         end
 
         it "should return all files in path including dotfiles" do
-          @result.count.should == 38
+          @result.count.should == 16
         end
       end
       context "and a block is given" do
@@ -42,11 +42,11 @@ module Kernel
         end
 
         it "should return all files in path including dotfiles" do
-          @result.count.should == 38
+          @result.count.should == 16
         end
 
         it "should have run the block against each file" do
-          @items_visited.should == 38
+          @items_visited.should == 16
         end
         
       end

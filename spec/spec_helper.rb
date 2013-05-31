@@ -1,7 +1,7 @@
 require 'rspec'
 require 'fileutils'
 require 'fakes'
-require 'fakes-rspec'
+# require 'fakes-rspec'
 
 Dir.chdir(File.join(File.dirname(__FILE__),"..,lib".split(','))) do
   require 'expansions.rb'

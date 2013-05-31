@@ -2,14 +2,19 @@ require 'spec_helper'
 
 module Expansions
   class AFakeVisitor
+    include ArrayFu
+
+    array :sources do|a| 
+      a.readable
+      a.writable
+      a.mutator :run_using
+    end
+
     def initialize
-      array :sources do|a| 
-        a.readable
-        a.writable
-        a.mutator :run_using
-      end
+      initialize_arrayfu
     end
   end
+
   describe Copy do
     let(:sources){[]}
     let(:copy_visitor){AFakeVisitor.new}

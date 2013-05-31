@@ -6,10 +6,12 @@ module Expansions
         TemplateVisitor,
         Expansion,
         Shell
-      ].each{|item| item.send(:include,Singleton)}
+      ].each do |item| 
+        item.send(:include, Singleton)
+      end
 
-      TemplateProcessors.instance.register_processor(:erb,ERBTemplateFile.new)
-      TemplateProcessors.instance.register_processor(:mustache,MustacheTemplateFile.new)
+      TemplateProcessors.instance.register_processor(:erb,ERBTemplateFile)
+      TemplateProcessors.instance.register_processor(:mustache,MustacheTemplateFile)
 
       enable_logging
     end
