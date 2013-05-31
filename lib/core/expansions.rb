@@ -1,4 +1,4 @@
-module Kernel
+module Expansions
   def expand(title = "Expansion",&block)
     Expansions::Expansion.instance.instance_eval(&block)
   end

@@ -27,7 +27,9 @@ module Expansions
     end
 
     def initialize(copy_target)
-      array(:sources).process_using :run, copy_target
+      array :sources do
+        process_using :run, copy_target
+      end
       initialize_arrayfu
     end
 
