@@ -13,7 +13,7 @@ module Expansions
       TemplateProcessors.instance.register_processor(:erb,ERBTemplateFile)
       TemplateProcessors.instance.register_processor(:mustache,MustacheTemplateFile)
 
-      enable_logging
+      Expansions.enable_logging
     end
   end
 end
