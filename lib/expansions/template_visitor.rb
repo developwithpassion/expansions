@@ -17,5 +17,12 @@ module Expansions
       file.delete(output) if file.exists?(output)
       processor.process(:input => file_name,:output => output)
     end
+
+    def load_settings_file(file_name)
+      settings_file = "#{file_name}.settings"
+      if File.exist?(settings_file)
+        load settings_file
+      end
+    end
   end
 end
