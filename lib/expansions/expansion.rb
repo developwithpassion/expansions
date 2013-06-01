@@ -1,6 +1,7 @@
 module Expansions
   class Expansion
     include ArrayFu
+    include ::Expansions
 
     attr_accessor :copies
     attr_accessor :files_to_merge
