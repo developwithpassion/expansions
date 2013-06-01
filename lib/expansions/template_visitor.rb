@@ -11,6 +11,7 @@ module Expansions
     def run_using(file_name)
       processor = processors.get_processor_for(file_name)
       generated_name = File.basename(file_name,File.extname(file_name))
+      load_settings_file(generated_name)
       generated_name = generated_name.gsub(/\.dotfile/,"") 
       generated_name = ".#{generated_name}" if (/\.dotfile/ =~ file_name) 
       output = File.join(File.dirname(file_name),generated_name)
