@@ -23,3 +23,5 @@ require 'expansions/string'
 require 'expansions/template_processors'
 require 'expansions/template_visitor'
 require 'expansions/expansions'
+
+include Expansions
