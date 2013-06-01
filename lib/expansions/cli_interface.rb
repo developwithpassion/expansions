@@ -17,6 +17,7 @@ No Expansionfile found (looking for: ExpansionFile)
     end
 
     def run(args = [])
+      extend ::Expansions
       file_to_run = get_expansion_file_name(args)
       ensure_expansion_file_provided file_to_run
       Startup.run
