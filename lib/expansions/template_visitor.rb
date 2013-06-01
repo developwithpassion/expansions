@@ -21,6 +21,7 @@ module Expansions
 
     def load_settings_file(file_name)
       settings_file = "#{file_name}.settings"
+      puts "Looking for settings file #{settings_file}"
       if File.exist?(settings_file)
         load settings_file
       end
