@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "fakes-rspec"
   s.add_development_dependency "rb-notifu"
-  s.add_runtime_dependency 'configatron', '>=2.9.0'
+  s.add_runtime_dependency 'configatron', '2.13.0'
   s.add_runtime_dependency "mustache"
   s.add_runtime_dependency "arrayfu"
 end
