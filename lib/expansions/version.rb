@@ -1,3 +1,3 @@
 module Expansions
-  VERSION = "0.1.22"
+  VERSION = "0.1.23"
 end
