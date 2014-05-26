@@ -11,6 +11,10 @@ module Expansions
     return items
   end
 
+  def configure(configuration_hash)
+    configatron.configure_from_hash(configure_from_hash)
+  end
+
   def disable_logging
     Expansions::Log.disable
   end
