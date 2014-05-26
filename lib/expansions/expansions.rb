@@ -12,7 +12,7 @@ module Expansions
   end
 
   def configure(configuration_hash)
-    configatron.configure_from_hash(configure_from_hash)
+    configatron.configure_from_hash(configuration_hash)
   end
 
   def disable_logging
