@@ -17,7 +17,7 @@ module Expansions
       end
 
       it "should copy the source to the target" do
-        shell.should have_received(:run,"cp -rf #{source} #{target}")
+        shell.should have_received_message(:run,"cp -rf #{source} #{target}")
       end
     end
   end

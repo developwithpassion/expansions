@@ -9,12 +9,12 @@ module Expansions
 
     array :cleanup_items do
       readable
-      process_using :run_cleanup,:call 
+      process_using :run_cleanup, :call 
     end
 
     array :setup_items do
       readable
-      process_using :run_setup_items,:call 
+      process_using :run_setup_items, :call 
     end
 
     array :executable_files do
@@ -36,13 +36,13 @@ module Expansions
     end
 
     def initialize
+      super
       initialize_hashes :files_to_merge,:copies
 
       @globber = Proc.new do |path|
         glob(path)
       end
 
-      initialize_arrayfu
     end
 
     def copy_to(target, &block)
@@ -81,7 +81,7 @@ module Expansions
       mark_files_executable
     end
 
-    def hash_process(target,hash,factory,&block)
+    def hash_process(target, hash, factory, &block)
       symbol = target.to_sym
       hash[symbol] = factory.call(target) unless hash.has_key?(symbol)
       hash[symbol].instance_eval(&block)

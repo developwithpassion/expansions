@@ -10,9 +10,6 @@ module Expansions
       a.mutator :run_using
     end
 
-    def initialize
-      initialize_arrayfu
-    end
   end
 
   describe Copy do

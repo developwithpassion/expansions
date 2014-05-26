@@ -6,7 +6,7 @@ module Expansions
   end
 
   def glob(path)
-    items = Dir.glob(path,File::FNM_DOTMATCH)
+    items = Dir.glob(path, File::FNM_DOTMATCH)
     items.each{|item| yield item if block_given?}
     return items
   end

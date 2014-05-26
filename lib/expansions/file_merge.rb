@@ -24,9 +24,9 @@ module Expansions
     end
 
     def initialize(output_file)
+      super
       @output_file = output_file
       @read_original_contents = true
-      initialize_arrayfu
     end
 
     def dont_read_original_file_contents

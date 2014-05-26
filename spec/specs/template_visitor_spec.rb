@@ -28,7 +28,7 @@ module Expansions
           sut.run_using("some.file.name")
         end
         it "should delete the original file" do
-          file.should have_received(:delete,"./#{file_name}") 
+          file.should have_received_message(:delete,"./#{file_name}") 
         end
       end
       context "and the generated file does not already exists" do
@@ -43,7 +43,7 @@ module Expansions
         end
 
         it "should not try to delete the original file" do
-          file.should_not have_received(:delete)
+          file.should_not have_received_message(:delete)
         end
       end
 
@@ -60,7 +60,7 @@ module Expansions
         end
 
         it "should tell the template to be expanded to a file with dotfile naming conventions" do
-          the_processor.should have_received(:process,:input => file_name,:output => "blah/.bashrc")
+          the_processor.should have_received_message(:process,:input => file_name,:output => "blah/.bashrc")
         end
       end
       context "that represents a non dotfile" do
@@ -76,7 +76,7 @@ module Expansions
         end
 
         it "should tell the template to be expanded to a file without the template name" do
-          the_processor.should have_received(:process,:input => file_name,:output => "blah/bashrc")
+          the_processor.should have_received_message(:process,:input => file_name,:output => "blah/bashrc")
         end
       end
     end

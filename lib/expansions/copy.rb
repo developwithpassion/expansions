@@ -30,7 +30,7 @@ module Expansions
       array :sources do
         process_using :run, copy_target
       end
-      initialize_arrayfu
+      super
     end
 
     def register(folder, copy_containing_folder=false)

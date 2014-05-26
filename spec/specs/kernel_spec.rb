@@ -19,16 +19,16 @@ describe Expansions do
     end
 
     after (:each) do
-      # @file_system.teardown
+      @file_system.teardown
     end
 
     context "and no block is given" do
       before (:each) do
-        @result = glob(File.join(RelativeFileSystem.base_path,"**/*"))
+        @result = glob(File.join(RelativeFileSystem.base_path,"**/*.*"))
       end
 
       it "should return all files in path including dotfiles" do
-        @result.count.should == 16
+        @result.count.should == 17
       end
     end
     context "and a block is given" do
@@ -36,17 +36,17 @@ describe Expansions do
         @items_visited = 0
       end
       before (:each) do
-        @result = glob(File.join(RelativeFileSystem.base_path,"**/*")) do |file|
+        @result = glob(File.join(RelativeFileSystem.base_path,"**/*.*")) do |file|
           @items_visited += 1
         end
       end
 
       it "should return all files in path including dotfiles" do
-        @result.count.should == 16
+        @result.count.should == 17
       end
 
       it "should have run the block against each file" do
-        @items_visited.should == 16
+        @items_visited.should == 17
       end
       
     end

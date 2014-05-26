@@ -15,7 +15,7 @@ module Expansions
         sut.run_using(file)
       end
       it "should run the shell action against the file" do
-        shell.should have_received(:run,"rm #{file}")
+        shell.should have_received_message(:run,"rm #{file}")
       end
     end
   end
