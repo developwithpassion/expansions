@@ -15,7 +15,7 @@ module Expansions
     configatron.configure_from_hash(configuration_hash)
   end
 
-  def configuration
+  def settings
     configatron
   end
 
