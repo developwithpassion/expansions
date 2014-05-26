@@ -15,6 +15,10 @@ module Expansions
     configatron.configure_from_hash(configuration_hash)
   end
 
+  def configuration
+    configatron
+  end
+
   def disable_logging
     Expansions::Log.disable
   end

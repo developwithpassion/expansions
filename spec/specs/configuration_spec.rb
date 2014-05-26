@@ -4,6 +4,6 @@ describe 'Configatron facade' do
       age: 42
     })
 
-    configatron.age.should == 42
+    configuration.age.should == 42
   end
 end
