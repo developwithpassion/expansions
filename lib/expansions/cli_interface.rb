@@ -16,7 +16,7 @@ No Expansionfile found (looking for: ExpansionFile)
       end
     end
 
-    def run(args = [])
+    def run(*args)
       file_to_run = get_expansion_file_name(args)
       ensure_expansion_file_provided file_to_run
       Startup.run
