@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard-rspec", "~> 4.2.9"
   s.add_development_dependency "fakes-rspec", "~> 2.0.0"
   s.add_development_dependency "rb-notifu", "~> 0.0.4"
-  s.add_runtime_dependency 'configatron', '2.13.0'
+  s.add_runtime_dependency 'configatron', '3.2.0'
   s.add_runtime_dependency "mustache", "~> 0.99.5"
   s.add_runtime_dependency "arrayfu", "~> 0.2.4"
 end
