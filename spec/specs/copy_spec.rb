@@ -6,7 +6,7 @@ module Expansions
 
     array :sources do|a| 
       a.readable
-      a.writable
+      a.writeable
       a.mutator :run_using
     end
 
