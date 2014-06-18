@@ -3,17 +3,17 @@ require 'configatron'
 
 module Expansions
   describe MustacheTemplateFile do
-    before (:each) do
-      @original_template = <<-original
-This is the first line {{ item }}
-This is the second line {{ item }}
-      original
-    end
     context "when processing" do
-      let(:item){"yo"}
+      before (:each) do
+        @original_template = <<-original
+This is the first line {{ hello }}
+This is the second line {{ hello }}
+        original
+      end
+
       let(:sut){MustacheTemplateFile}
 
-      configatron.configure_from_hash :hello => "world"
+      configure :hello => 'world'
 
       before (:each) do
         @filesystem = RelativeFileSystem.new
@@ -22,7 +22,6 @@ This is the second line {{ item }}
 
         @filesystem.write_file("blah.rb",@original_template)
 
-        configatron.stub(:to_hash).and_return(:item => item)
         File.stub(:read_all_text).with(@file_name).and_return(@original_template)
       end
 
@@ -36,11 +35,60 @@ This is the second line {{ item }}
 
       it "should expand everything" do
         @expected = <<-template
-This is the first line #{item}
-This is the second line #{item}
-template
+This is the first line world
+This is the second line world
+        template
 
-IO.read(@output).should == @expected
+        IO.read(@output).should == @expected
+      end
+
+    end
+
+    context "when processing with nested parameters" do
+      before (:each) do
+        @original_template = <<-original
+This is the first line {{{my.github.username}}}
+        original
+
+        details = { 
+          my: 
+          { 
+            username: 'jp',
+            github: 
+            {
+              username: 'jp' 
+            } 
+          }
+        }
+        configure(details)
+      end
+      let(:sut){MustacheTemplateFile}
+
+
+      before (:each) do
+        @filesystem = RelativeFileSystem.new
+        @output = RelativeFileSystem.file_name("out.rb")
+        @file_name = RelativeFileSystem.file_name("blah.rb")
+
+        @filesystem.write_file("blah.rb",@original_template)
+
+        File.stub(:read_all_text).with(@file_name).and_return(@original_template)
+      end
+
+      after(:each) do
+        @filesystem.teardown
+      end
+
+      before (:each) do
+        sut.process(:input => @file_name,:output => @output)
+      end
+
+      it "should expand everything" do
+        @expected = <<-template
+This is the first line jp
+        template
+
+        IO.read(@output).should == @expected
       end
 
     end
