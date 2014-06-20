@@ -39,8 +39,8 @@ module Expansions
       super
       initialize_hashes :files_to_merge,:copies
 
-      @globber = Proc.new do |path|
-        glob(path)
+      @globber = Proc.new do |path, exclude|
+        glob(path, exclude)
       end
 
     end
