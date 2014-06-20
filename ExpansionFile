@@ -1,0 +1,5 @@
+expand do
+ look_for_templates_in "**/*.mustache", exclude: ->(file) {
+   true
+ }
+end

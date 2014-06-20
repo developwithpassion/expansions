@@ -5,9 +5,11 @@ module Expansions
     Expansions::Expansion.instance.instance_eval(&block)
   end
 
-  def glob(path, exclude=->(file) { false })
-    items = Dir.glob(path, File::FNM_DOTMATCH)
-    items.each{|item| yield item if block_given? && !exclude.call(item)}
+  def glob(path, exclude=->(file) { false }, &block)
+    items = Dir.glob(path, File::FNM_DOTMATCH).select do |file|
+      !exclude.call(file)
+    end
+    items.each(&block)
     return items
   end
 
