@@ -59,8 +59,10 @@ module Expansions
       hash_process(target, files_to_merge, merge_proc, &block)
     end
 
-    def look_for_templates_in(path)
-      globber.call(path).process_all_items_using(TemplateVisitor.instance)
+    def look_for_templates_in(path, options=Hash.new(nil))
+      exlusion = options.fetch(:exclude, -> (file) { false })
+
+      globber.call(path, exlusion).process_all_items_using(TemplateVisitor.instance)
     end
 
     def cleanup(&block)

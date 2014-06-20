@@ -69,6 +69,7 @@ module Expansions
         @items+=1
       end
     end
+
     context "when a set of templates is specified" do
       let(:path){"**/*"}
       let(:template_visitor){FakeVisitor.new}
@@ -77,18 +78,37 @@ module Expansions
         @files = %w[1 2 3 4]
         Kernel.stub(:glob).with(path).and_return(@files)
         @sut = Expansion.new
-        @sut.globber = lambda{|the_path| 
+        @sut.globber = lambda{|the_path, exclusion| 
           the_path.should == path
-          return @files
+          files = []
+          @files.each do |file|
+            files << file unless exclusion.call(file)
+          end
+          return files
         }
       end
-      before (:each) do
-        @sut.look_for_templates_in(path)
+
+      context 'and a filter is not provided' do
+        before (:each) do
+          @sut.look_for_templates_in(path)
+        end
+
+        it "should process each of the loaded templates using the template visitor" do
+          template_visitor.items.should == 4
+        end
       end
 
-      it "should process each of the loaded templates using the template visitor" do
-        template_visitor.items.should == 4
+      context 'and a filter is provided' do
+        before (:each) do
+          @sut.look_for_templates_in(path, exclude: -> (file) { /1/ =~ file })
+        end
+
+        it 'should only process the templates that were not filtered' do
+          template_visitor.items.should == 3 
+        end
       end
+
+
     end
 
     context "when a before is specified" do
