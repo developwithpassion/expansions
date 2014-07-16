@@ -1,7 +1,7 @@
 language: ruby
 rvm:
 - 2.1.2
-script: bundle exec rspec spec/**/*.*
+script: bundle exec thor spec
 env:
   global:
     secure: cuH3QjMz9xt5CsZXHoZc7pfZlTuXzKd/9l6rfNiRTAg1HoFd7ditQGwUcKW+0ClgPtTGQLH4NCA4XXdCjYxkhTuNHt6Fle3PH6cQ1yJ3fO94H+7VDzh9ElizduEPYO59cEnamEagFtqRo3nG4Es9G/32o7aDiM8OEtiXpugGUoE=

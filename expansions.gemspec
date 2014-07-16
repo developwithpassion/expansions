@@ -19,11 +19,6 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  # specify any dependencies here; for example:
-  s.add_development_dependency "guard", "~> 2.6.1"
-  s.add_development_dependency "guard-rspec", "~> 4.2.9"
-  s.add_development_dependency "fakes-rspec", "~> 2.0.0"
-  s.add_development_dependency "rb-notifu", "~> 0.0.4"
   s.add_runtime_dependency 'configatron', '4.1.0'
   s.add_runtime_dependency "mustache", "~> 0.99.5"
   s.add_runtime_dependency "arrayfu", "~> 1.0.0"
