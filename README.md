@@ -1,4 +1,12 @@
-#developwithpassion_expander
+#expansions
+
+[![Build Status](http://img.shields.io/travis/developwithpassion/expansions.svg)][travis]
+[![Code Climate](http://img.shields.io/codeclimate/github/developwithpassion/expansions.svg)][codeclimate]
+[![Coverage Status](http://img.shields.io/coveralls/developwithpassion/expansions.svg)][coveralls]
+
+[travis]: https://travis-ci.org/developwithpassion/expansions
+[codeclimate]: https://codeclimate.com/github/developwithpassion/expansions
+[coveralls]: https://coveralls.io/r/developwithpassion/expansions
 
 This was one of the first projects I wrote when I was teaching myself ruby. A lot of the codebase definitely shows its age, but it is also what I use to this day to manage my [cross platform script configuration system].
 
