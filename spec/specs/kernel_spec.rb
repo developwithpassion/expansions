@@ -2,6 +2,8 @@ require 'spec_helper'
 
 include Expansions
 describe Expansions do
+  let (:file_count) { 16 }
+
   context "when globbing for files" do
     before (:each) do
       @file_system = RelativeFileSystem.new
@@ -22,34 +24,36 @@ describe Expansions do
       @file_system.teardown
     end
 
+
     context "and no block is given" do
       before (:each) do
         @result = glob(File.join(RelativeFileSystem.base_path,"**/*.*"))
       end
 
-      it "should return all files in path including dotfiles" do
-        @result.count.should == 17
+      it "should return all files in path" do
+        @result.count.should >= file_count
       end
     end
+
     context "and a block is given" do
       before (:each) do
         @items_visited = 0
       end
+
       before (:each) do
         @result = glob(File.join(RelativeFileSystem.base_path,"**/*.*")) do |file|
           @items_visited += 1
         end
       end
 
-      it "should return all files in path including dotfiles" do
-        @result.count.should == 17
+      it "should return all files in path" do
+        @result.count.should >= file_count
       end
 
       it "should have run the block against each file" do
-        @items_visited.should == 17
+        @items_visited.should >= file_count
       end
-      
     end
-    
+
   end
 end 
