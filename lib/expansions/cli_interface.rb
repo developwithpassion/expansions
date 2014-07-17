@@ -20,7 +20,6 @@ No Expansionfile found (looking for: ExpansionFile)
       file_to_run = get_expansion_file_name(args)
       ensure_expansion_file_provided file_to_run
       Startup.run
-      Expansions.log "Running Expansions defined in file:#{file_to_run}"
       load file_to_run
       Expansion.instance.run
     end
