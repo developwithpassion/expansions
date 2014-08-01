@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency 'configatron', '~>4.1.0'
-  s.add_runtime_dependency "mustache", "~> 0.99.5"
-  s.add_runtime_dependency "arrayfu", "~> 1.0.0"
+  s.add_runtime_dependency 'configatron', '>= 4.1.0'
+  s.add_runtime_dependency "mustache", '>= 0.99.5'
+  s.add_runtime_dependency "arrayfu", '>= 1.0.0'
 end
