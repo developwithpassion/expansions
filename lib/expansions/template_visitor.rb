@@ -12,7 +12,7 @@ module Expansions
     def run_using(file_name)
       processor = processors.get_processor_for(file_name)
 
-      generated_name = File.basename(file_name,File.extname(file_name))
+      generated_name = File.basename(file_name, File.extname(file_name))
 
       load_settings_file(File.dirname(file_name), generated_name)
 
@@ -20,7 +20,7 @@ module Expansions
 
       generated_name = ".#{generated_name}" if (DOT_FILE_PATTERN =~ file_name) 
 
-      output = File.join(File.dirname(file_name),generated_name)
+      output = File.join(File.dirname(file_name), generated_name)
 
       file.delete(output) if file.exists?(output)
 
