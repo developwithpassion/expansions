@@ -20,7 +20,6 @@ module Expansions
       context "and the generated file already exists" do
         let(:file_name){"some.file"}
         before (:each) do
-          the_processor.stub(:remove_template_extension_from).and_return(file_name)
           file.stub(:exists?).with("./some.file").and_return(true)
         end
 
@@ -34,7 +33,6 @@ module Expansions
       context "and the generated file does not already exists" do
         let(:file_name){"some.file"}
         before (:each) do
-          the_processor.stub(:remove_template_extension_from).and_return(file_name)
           file.stub(:exists?).with("./some.file").and_return(false)
         end
 
@@ -53,7 +51,6 @@ module Expansions
 
         before (:each) do
           registry.stub(:get_processor_for).and_return(the_processor)
-          the_processor.stub(:remove_template_extension_from).ignore_arg.and_return("bashrc.dotfile")
         end
         before (:each) do
           sut.run_using(file_name)
@@ -69,7 +66,6 @@ module Expansions
 
         before (:each) do
           registry.stub(:get_processor_for).and_return(the_processor)
-          the_processor.stub(:remove_template_extension_from).ignore_arg.and_return("bashrc")
         end
         before (:each) do
           sut.run_using(file_name)
@@ -77,6 +73,29 @@ module Expansions
 
         it "should tell the template to be expanded to a file without the template name" do
           the_processor.should have_received_message(:process,:input => file_name,:output => "blah/bashrc")
+        end
+      end
+
+      context "and the template processor throw an exception" do
+        let(:file_name){"blah/bashrc.erb"}
+        let(:options){{}}
+        let(:inner) { Exception.new("This is an error") }
+
+        before (:each) do
+          registry.stub(:get_processor_for).and_return(the_processor)
+          the_processor.stub(:process).throws(inner)
+        end
+
+        before (:each) do
+          begin
+            sut.run_using(file_name)
+          rescue Exception => e
+            @error = e
+          end
+        end
+
+        it "should rethrow the exception with details of the file that could not be transformed" do
+          expect(@error.message).to match(/Error processing/)
         end
       end
     end
