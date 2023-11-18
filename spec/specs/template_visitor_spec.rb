@@ -20,7 +20,7 @@ module Expansions
       context "and the generated file already exists" do
         let(:file_name){"some.file"}
         before (:each) do
-          file.stub(:exists?).with("./some.file").and_return(true)
+          file.stub(:exist?).with("./some.file").and_return(true)
         end
 
         before (:each) do

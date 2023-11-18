@@ -14,7 +14,7 @@ module Expansions
       names = get_file_names(file_name)
       load_settings_file(names[:settings_file])
       output = names[:output_file_name]
-      file.delete(output) if file.exists?(output)
+      file.delete(output) if file.exist?(output)
 
       begin
         processor.process(:input => file_name,:output => output)
