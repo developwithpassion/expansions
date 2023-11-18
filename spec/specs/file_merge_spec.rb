@@ -7,7 +7,7 @@ module Expansions
       let(:output_file){"out_file.rb"}
       let(:sut){FileMerge.new(output_file)}
       before (:each) do
-        File.stub(:exists?).with(file).and_return(true)
+        File.stub(:exist?).with(file).and_return(true)
       end
       context "and it is not already in the list" do
         before (:each) do
@@ -36,7 +36,7 @@ module Expansions
       let(:output_file){"out_file.rb"}
       let(:sut){FileMerge.new(output_file)}
       before (:each) do
-        File.stub(:exists?).with(file).and_return(true)
+        File.stub(:exist?).with(file).and_return(true)
       end
 
       before (:each) do

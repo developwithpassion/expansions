@@ -27,7 +27,7 @@ describe Expansions do
 
     context "and no block is given" do
       before (:each) do
-        @result = glob(File.join(RelativeFileSystem.base_path,"**/*.*"))
+        @result = glob(File.join(RelativeFileSystem.base_path,"**/**"))
       end
 
       it "should return all files in path" do
@@ -41,7 +41,7 @@ describe Expansions do
       end
 
       before (:each) do
-        @result = glob(File.join(RelativeFileSystem.base_path,"**/*.*")) do |file|
+        @result = glob(File.join(RelativeFileSystem.base_path,"**/*")) do |file|
           @items_visited += 1
         end
       end
