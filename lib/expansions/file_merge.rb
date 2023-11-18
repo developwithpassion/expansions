@@ -59,7 +59,7 @@ module Expansions
 
     def add_merge_file(items,file)
       return if items.include?(file)
-      items << file if File.exists?(file)
+      items << file if File.exist?(file)
     end
   end
 end
